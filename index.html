@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Boat Cleaning Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #007BFF; /* Nice blue background */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: relative;
+      text-align: center;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+    }
+
+    .hero-text {
+      animation: fadeInDown 2s ease-out;
+    }
+
+    h1 {
+      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .btn {
+      background: #0056b3;
+      padding: 10px 30px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      margin-top: 20px;
+      margin-right: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #003f7f;
+    }
+
+    section {
+      padding: 50px 100px;
+    }
+
+    .service {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    footer {
+      background: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 30px 20px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        width: 70px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <img src="your-logo.png" alt="Company Logo" class="logo">
+    <div class="hero-text">
+      <h1>Boat Cleaning Services</h1>
+      <button class="btn" onclick="window.location.href='mailto:contact@rjmarineshine.co.uk?subject=Free%20Quote%20Request&body=Hello,%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20boat.'">Get A Free Quote</button>
+      <button class="btn" onclick="window.location.href='tel:+447940751760'">Call Us</button>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service service-card">
+        <h3>Vessel Cleaning</h3>
+        <p>Ensure your vessel is spotless with our specialized cleaning service.</p>
+      </div>
+      <div class="service service-card">
+        <h3>Interior Detailing</h3>
+        <p>We keep your boat's interior pristine with our premium detailing solutions.</p>
+      </div>
+      <div class="service service-card">
+        <h3>Deck Polishing</h3>
+        <p>Shine and protect your deck with our top-quality polishing services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a professional boat cleaning company with years of experience in keeping boats looking their best. We offer tailored solutions to meet the unique needs of boat owners, from a basic wash and wax to ceramic detailing.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <footer>
+    <p>&copy; 2024 Rj Marine Shine | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Smooth Scroll Animation
+    const services = document.querySelectorAll('.service');
+
+    window.addEventListener('scroll', checkServices);
+
+    function checkServices() {
+      const triggerBottom = window.innerHeight / 5 * 4;
+      services.forEach(service => {
+        const serviceTop = service.getBoundingClientRect().top;
+        if (serviceTop < triggerBottom) {
+          service.classList.add('show');
+        } else {
+          service.classList.remove('show');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
